@@ -1,0 +1,30 @@
+Twilicious Contd.
+=========
+
+Pulling all my tweets from .json files on my computer into a mongodb.
+
+##Step 1 
+Installed mongodb
+
+##Step 2
+Used the import command to bring in one tweet and test that my DB worked
+
+```
+mongoimport -d test -c foo importfile.json
+
+```
+Unfortunately my DB is called "test" and my collection is called "foo" and I don't know how to change that now. ;) Instead of creating a script to loop through all my tweets and add them to the DB, I again used a bash command to do this. Just a simple for loop where for each file "type -f" do the mongoimport command.
+
+```
+for D in `find . -type f`; 
+do  
+    mongoimport -d test -c foo "${D}"; 
+done
+
+```
+
+##Step 3
+Set up Node to use it as a way to communicate with mongodb
+
+##Step 4
+Set up Express and got lost!
